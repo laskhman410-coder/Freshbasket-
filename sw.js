@@ -1,4 +1,4 @@
-const CACHE_NAME = "fresh-basket-v6";
+const CACHE_NAME = "fresh-basket-v7";
 const ASSETS = ["./", "./index.html", "./manifest.json", "./icon.svg"];
 
 self.addEventListener("install", event => {
