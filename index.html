@@ -18,15 +18,10 @@
 <script>
 const products=[{id:1,name:"আলু (Potato)",price:30,unit:"kg",emoji:"🥔"},{id:2,name:"পেঁয়াজ (Onion)",price:40,unit:"kg",emoji:"🧅"},{id:3,name:"টমেটো (Tomato)",price:35,unit:"kg",emoji:"🍅"},{id:4,name:"বেগুন (Brinjal)",price:40,unit:"kg",emoji:"🍆"},{id:5,name:"গাজর (Carrot)",price:50,unit:"kg",emoji:"🥕"},{id:6,name:"ফুলকপি (Cauliflower)",price:35,unit:"piece",emoji:"🥦"},{id:7,name:"শসা (Cucumber)",price:30,unit:"kg",emoji:"🥒"},{id:8,name:"কাঁচা লঙ্কা (Green Chilli)",price:60,unit:"kg",emoji:"🌶️"},{id:9,name:"পালং শাক (Spinach)",price:20,unit:"bundle",emoji:"🥬"},{id:10,name:"লেবু (Lemon)",price:5,unit:"piece",emoji:"🍋"},{id:11,name:"বাঁধাকপি (Cabbage)",price:30,unit:"piece",emoji:"🥬"},{id:12,name:"মুলো (Radish)",price:30,unit:"kg",emoji:"🥕"},{id:13,name:"ঢেঁড়স (Okra)",price:40,unit:"kg",emoji:"🌿"},{id:14,name:"পটল (Pointed Gourd)",price:40,unit:"kg",emoji:"🥒"},{id:15,name:"ঝিঙে (Ridge Gourd)",price:40,unit:"kg",emoji:"🥒"},{id:16,name:"লাউ (Bottle Gourd)",price:35,unit:"piece",emoji:"🥒"},{id:17,name:"মিষ্টি কুমড়ো (Pumpkin)",price:35,unit:"kg",emoji:"🎃"},{id:18,name:"করলা (Bitter Gourd)",price:50,unit:"kg",emoji:"🥒"},{id:19,name:"বরবটি (Yardlong Beans)",price:50,unit:"kg",emoji:"🫛"},{id:20,name:"শিম (Flat Beans)",price:50,unit:"kg",emoji:"🫛"},{id:21,name:"মটরশুঁটি (Green Peas)",price:80,unit:"kg",emoji:"🫛"},{id:22,name:"কাঁচা পেঁপে (Raw Papaya)",price:30,unit:"kg",emoji:"🥬"},{id:23,name:"ধনেপাতা (Coriander Leaves)",price:10,unit:"bundle",emoji:"🌿"},{id:24,name:"লাল শাক (Red Amaranth)",price:20,unit:"bundle",emoji:"🥬"},{id:25,name:"পুঁই শাক (Malabar Spinach)",price:20,unit:"bundle",emoji:"🥬"},{id:26,name:"মিষ্টি আলু (Sweet Potato)",price:40,unit:"kg",emoji:"🍠"},{id:27,name:"বিট (Beetroot)",price:50,unit:"kg",emoji:"🫜"},{id:28,name:"ক্যাপসিকাম (Capsicum)",price:80,unit:"kg",emoji:"🫑"},{id:29,name:"কাঁচকলা (Raw Banana)",price:40,unit:"kg",emoji:"🍌"},{id:30,name:"সজনে ডাঁটা (Drumsticks)",price:60,unit:"kg",emoji:"🌿"}];
 const cart={};const money=n=>"₹"+n;function renderProducts(){
- const photos=[
-  "https://images.pexels.com/photos/31404675/pexels-photo-31404675/free-photo-of-vibrant-display-of-fresh-vegetables-at-farmers-market.jpeg?auto=compress&cs=tinysrgb&w=700",
-  "https://trad.joyfull.co.jp/trad/food_safety/img/safety_box_img02.jpg",
-  "https://www.salika.org/public/images/organic_produce.jpg"
- ];
  const grid=document.getElementById("productGrid");
  if(!grid)return;
- grid.innerHTML=products.map((p,i)=>`<article class="card">
-  <div class="photo"><img src="${photos[i%photos.length]}" alt="${p.name} - fresh vegetable photo" loading="lazy" onerror="this.onerror=null;this.src='${photos[0]}'"></div>
+ grid.innerHTML=products.map(p=>`<article class="card">
+  <div class="photo" aria-label="${p.name}" style="font-size:76px">${p.emoji}</div>
   <h3>${p.name}</h3>
   <div class="price">${money(p.price)} <small class="muted">/ ${p.unit==="piece"?"টি":p.unit==="bundle"?"আঁটি":"কেজি"}</small></div>
   <button type="button" onclick="add(${p.id})">+ Cart-এ যোগ করুন</button>
